@@ -39,7 +39,7 @@ model User {
 model Data {
   id        String   @id @default(cuid())
   date      String
-  value     String
+  value     Float
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
   status    Status   @default(active)

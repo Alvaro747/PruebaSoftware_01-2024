@@ -4,6 +4,7 @@ import {
   IsOptional,
   IsNotEmpty,
   Length,
+  IsNumber,
 } from 'class-validator';
 import { StatusEnum, StatusEnumType } from '@enums/global/global.enum';
 
@@ -13,10 +14,9 @@ export class CreateDataDto {
   @Length(0, 255)
   readonly date: string;
 
-  @IsString()
+  @IsNumber()
   @IsNotEmpty()
-  @Length(0, 255)
-  readonly value: string;
+  readonly value: number;
 
   @IsEnum(StatusEnum)
   @IsOptional()

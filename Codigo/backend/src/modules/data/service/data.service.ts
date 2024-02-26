@@ -35,6 +35,9 @@ export class DataService {
       case 'id':
         response = await this.findById(params);
         break;
+      case 'all':
+        response = await this.findAll();
+        break;
       case 'status':
         response = await this.findByStatus(params);
         break;
