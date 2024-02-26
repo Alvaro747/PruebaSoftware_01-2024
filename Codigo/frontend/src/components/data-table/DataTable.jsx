@@ -13,15 +13,15 @@ function DataTable({data}) {
     <table id="data-table">
       <thead>
         <tr>
-          <th>Fecha</th>
-          <th>Valor</th>
+          <th>Date</th>
+          <th>Value</th>
         </tr>
       </thead>
       <tbody>
         {dataToRender.map((row, index) => (
           <tr key={index}>
-            <td>{row.fecha}</td>
-            <td>{row.valor}</td>
+            <td>{row.date}</td>
+            <td>{row.value}</td>
           </tr>
         ))}
       </tbody>
