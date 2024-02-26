@@ -22,7 +22,10 @@ export class UserController {
   }
 
   @Get(':queryselector')
-  async get(@Param('queryselector') queryselector: string, @Query('search') search: string) {
+  async get(
+    @Param('queryselector') queryselector: string,
+    @Query('search') search: string,
+  ) {
     return this.userService.get({ queryselector, search });
   }
 
