@@ -1,16 +1,36 @@
 import {useState} from "react";
 import {FaUserCircle, FaUser, FaLock, FaEye, FaEyeSlash} from "react-icons/fa";
 import "./styles/login.css";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
+import {AuthService} from "@services";
+import {useAuth} from "@hooks/useAuth.hook";
+
+async function userLogin(payload, Entity) {
+  const entityService = new Entity();
+  const entityResponse = await entityService.post(payload);
+
+  if (!entityResponse) {
+    return null;
+  }
+
+  return entityResponse;
+}
 
 const Login = () => {
-  const [credentials, setCredentials] = useState({email: "", username: ""});
+  const [credentials, setCredentials] = useState({username: "", password: ""});
+  const authProvider = useAuth();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const {email, password} = credentials;
-    console.log("Email:", email);
-    console.log("Contraseña:", password);
+    const entityResponse = await userLogin(credentials, AuthService);
+
+    if (!entityResponse.success) {
+      alert(entityResponse.message);
+      return;
+    }
+
+    authProvider.login(entityResponse.result);
+
     // Implementar lógica de inicio de sesión aquí
   };
 
@@ -65,7 +85,7 @@ const Login = () => {
 
           <div className="form-container_password">
             <label htmlFor="password" className="form-label_password">
-              Contraseña
+              Password
             </label>
             <div className="container_password">
               <div className="icon-user">
