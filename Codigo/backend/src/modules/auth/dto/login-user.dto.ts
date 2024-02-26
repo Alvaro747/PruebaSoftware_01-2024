@@ -8,7 +8,6 @@ import {
 } from 'class-validator';
 
 export class LoginUserDto {
-  @IsEmail()
   @IsString()
   @IsNotEmpty()
   readonly username: string;

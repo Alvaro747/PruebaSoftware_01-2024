@@ -17,8 +17,8 @@ export class UserService {
     return this.userRepository.create(createUserDto);
   }
 
-  async validateUser(email: string): Promise<ResponseUserDto> {
-    const user = await this.userRepository.validateUser(email);
+  async validateUser(username: string): Promise<ResponseUserDto> {
+    const user = await this.userRepository.validateUser(username);
     return user ? user : null;
   }
 

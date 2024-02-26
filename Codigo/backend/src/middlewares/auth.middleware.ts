@@ -1,4 +1,8 @@
-import { Injectable, NestMiddleware, UnauthorizedException } from '@nestjs/common';
+import {
+  Injectable,
+  NestMiddleware,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
 import { JwtService } from '@nestjs/jwt';
 import { TokenPayloadType } from '@common/types/token.type';
@@ -17,11 +21,13 @@ export class AuthMiddleware implements NestMiddleware {
 
     try {
       const accessPayload = this.jwtService.verify(accessToken);
-      req.user = accessPayload;
+      req['user'] = accessPayload;
       next();
     } catch (error) {
       if (!refreshToken) {
-        throw new UnauthorizedException(`Access Denied. No refresh token provided.`);
+        throw new UnauthorizedException(
+          `Access Denied. No refresh token provided.`,
+        );
       }
 
       try {
@@ -29,19 +35,25 @@ export class AuthMiddleware implements NestMiddleware {
 
         const accessPayload: TokenPayloadType = {
           user: refreshPayload.user,
-          account: refreshPayload.account,
-          userSubscriptionPlan: refreshPayload.userSubscriptionPlan,
         };
 
         const newAccessToken = this.jwtService.sign(accessPayload);
 
         res
-          .cookie('access_token', newAccessToken, { httpOnly: true, secure: true })
-          .cookie('refresh_token', refreshToken, { httpOnly: true, secure: true });
-        req.user = refreshPayload;
+          .cookie('access_token', newAccessToken, {
+            httpOnly: true,
+            secure: true,
+          })
+          .cookie('refresh_token', refreshToken, {
+            httpOnly: true,
+            secure: true,
+          });
+        req['user'] = refreshPayload;
         next();
       } catch (error) {
-        throw new UnauthorizedException(`Access Denied. refresh token expired.`);
+        throw new UnauthorizedException(
+          `Access Denied. refresh token expired.`,
+        );
       }
     }
   }

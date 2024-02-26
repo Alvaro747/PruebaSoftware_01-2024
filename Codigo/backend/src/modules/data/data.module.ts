@@ -9,4 +9,4 @@ import { RelationalUserPersistenceModule } from './persistence/relational/relati
   providers: [DataService],
   exports: [DataService],
 })
-export class UserModule {}
+export class DataModule {}

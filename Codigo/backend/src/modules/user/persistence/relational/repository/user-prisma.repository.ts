@@ -16,10 +16,10 @@ export class UserPrismaRepository implements IUserRepository {
     });
   }
 
-  async validateUser(email: string): Promise<ResponseUserDto> {
+  async validateUser(username: string): Promise<ResponseUserDto> {
     const user = await this.databaseService.user.findUnique({
       where: {
-        email,
+        username,
       },
     });
 
