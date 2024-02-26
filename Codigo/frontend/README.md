@@ -1,8 +1,14 @@
-# React + Vite
+# Esquema de variables de entorno
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#Conexión con el backend
 
-Currently, two official plugins are available:
+#url donde esta alojado el servicio de backend
+VITE_REACT_APP_BASE_API
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+#Ejecucion
+
+1. Entra al la raiz /frontend
+2. comando npm install
+3. configura las variables .env
+4. correr el comando npm run dev
