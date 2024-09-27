@@ -1,0 +1,43 @@
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  color: #ddd;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+}
+
+.navbar li {
+  margin: 0 5px;
+}
+
+.text-logout{
+  margin-right: 5px;
+
+}
+
+/* Alinear logout */
+.logout-button {
+  display: flex;
+  align-items: center;
+  padding: .5rem;
+  cursor: pointer;
+}

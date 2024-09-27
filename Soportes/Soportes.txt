@@ -1,0 +1,2 @@
+URL_BRANCH_REPOSITORY: https://github.com/Alvaro747/PruebaSoftware_01-2024/tree/alvaro-bernal-trujillo
+URL_VIDEO: https://drive.google.com/file/d/1Pc3eGzIMwUaGv4Smyw8W4sDI78MrfoaJ/view?usp=sharing

@@ -1,0 +1,19 @@
+/* Tabla */
+#data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .table-container {
+    max-height: 100px; /* Ajusta este valor a la altura que prefieras */
+    overflow-y: auto;
+  }
+  
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  th {
+    text-align: center;
+  }
